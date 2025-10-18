@@ -11,6 +11,10 @@ properties([
 ])
 pipeline {
     agent any
+    triggers {
+    // Not strictly needed if webhook is configured, but can act as a fallback
+    githubPush()
+  }
     stages {
         stage('Preparing') {
             steps {
